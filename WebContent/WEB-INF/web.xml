@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>ProyectoBlog</display-name>
+  
+  <!-- BEGIN: Contexto Spring Global -->
+	<listener> <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> </listener>  
+  <context-param>  <param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/applicationContext.xml</param-value>  </context-param>
+	<!-- END: Contexto Spring Global -->
+	
+	<!-- BEGIN: Spring MVC -->
+	<servlet>
+		<servlet-name>ProyectoBlog</servlet-name>  <!-- ProyectoBlog-servlet.xml -->
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping> 
+		<servlet-name>ProyectoBlog</servlet-name>
+		<url-pattern>/action/*</url-pattern> <!--Este  es el nombre en localhost mas con el mapping  -->
+	</servlet-mapping>
+	<!-- END: Spring MVC -->	
+	
+	<!-- BEGIN: Filtro de Codificacion -->
+	<filter>
+		<filter-name>encoding-filter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping> <filter-name>encoding-filter</filter-name>  <url-pattern>/*</url-pattern>  </filter-mapping>
+	<!-- END: Filtro de Codificacion -->
+	
+	<filter>   	<!-- BEGIN: Open Session in View -->
+		<filter-name>OpenEntityManagerInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>OpenEntityManagerInViewFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		
+	</filter-mapping>  <!-- END: Open Session in View -->
+  
+  <!-- parte por defecto y modificado del web.xml  -->
+  <welcome-file-list>  <welcome-file>action/usuario/</welcome-file>   </welcome-file-list>  
+  
+</web-app>

@@ -1,0 +1,69 @@
+Base de datos: BDblog
+
+CREATE TABLE usuario(
+        idusu INTEGER NOT NULL AUTO_INCREMENT,
+        nombreusuario VARCHAR(20) NOT NULL,
+        clave VARCHAR(50) NOT NULL,
+        PRIMARY KEY(idusu),
+        UNIQUE (nombreusuario)
+);
+
+
+
+INSERT INTO usuario(nombreusuario, clave) VALUES('admin', 'd033e22ae348aeb5660fc2140aec35850c4da997');
+INSERT INTO usuario(nombreusuario, clave) VALUES('anonimo', 'b665e217b51994789b02b1838e730d6b93baa30f');
+INSERT INTO usuario(nombreusuario, clave) VALUES('laura', '296ef2014ffd08ea17aef007044f4f7851daa33d'),
+
+
+CREATE TABLE recetas(
+        idrect INTEGER NOT NULL AUTO_INCREMENT,
+        nombrerect VARCHAR(500) NOT NULL,
+        ingredientes VARCHAR(4000) NOT NULL,
+       resumen VARCHAR(4000) NOT NULL,
+       fechapubli DATE,
+         descripcion VARCHAR(5000) NOT NULL,
+         categoria VARCHAR(100) NOT NULL,
+        usuarioid INTEGER NOT NULL ,
+        imagen VARCHAR(2000),
+        PRIMARY KEY(idrect),
+        FOREIGN KEY (usuarioid) REFERENCES usuario (idusu) ON DELETE CASCADE
+ );
+       
+
+
+INSERT INTO `recetas` (`nombrerect`, `ingredientes`, `resumen`, `fechapubli`, `descripcion`, `categoria`, `usuarioid`,`imagen`) VALUES
+('Croqueta', '250 gr. de pollo.\r\n2 cebollas.\r\n150 gr. de harina.\r\n2 yemas de huevo.\r\n170 gr. de mantequilla.\r\n1 litro de leche.', ' Las croquetas de pollo son una guarnición muy común como entrante a la hora de comer en un restaurante o una comida que organicemos nosotros. Ello se debe a que gracias a la bechamel y el pollo es un alimento muy ligero que se derrite en la boca, por lo que podemos disfrutar mejor de su estupendo sabor.', '2016-02-26', ' Vamos a empezar ocupándonos de la cebolla, la cual pelamos y troceamos en trocitos pequeños. Podéis pasarla por la trituradora para hacerlo más fácil o usar una bola congelada que vendan en el supermercado. Luego el pollo cortarlo también en trozos pequeños. Si no, que en la carnicería os lo troceen bien para poder hacer más cómodamente las croquetas.\r\nPonemos un poco de aceite a calentar y echamos los trozos de cebolla al mismo tiempo que el pollo. Lo vamos removiendo hasta que empiece a dorarse le pollo y la cebolla se transparente.\r\nAhora iremos echando la harina poco a polco, espolvoreándola. Remover bien para que se mezcle con los ingredientes y añadimos la leche. De nuevo removerlo todo bien. Por último, añadimos la mantequilla y remezclamos todo hasta los ingredientes formen una especie de masa. Cuando la masa tenga suficiente consistencia apagamos el fuego.\r\nBatimos los dos huevos bien, con un poco de sal, sin que se quede ni un grumo. En otro plato ponemos una  montañita de harina (si necesitáis luego más, pues echad más).\r\nPonemos en una sartén bastante aceite y vamos a procesar el proceso para hacer las croquetas; cogemos trocitos de la masa que hemos preparado y le vamos dando la forma de cilindro de una croqueta, pudiendo hacerlas de tamaño a nuestro gusto. Las pasamos entonces por la harina, que se adhiera bien y por último por las yemas. Al asegurarnos que no sueltan gotas, las echamos a la sartén.\r\nAseguraros de no poner muchas croquetas al mismo tiempo para que así se puedan hacer bien. Teniendo el fuego a potencia media no debería llevaros más de unos 10 minutos al principio, y poco menos de 5 entre vuelta y vuelta cuando esté ya el aceite muy caliente.\r\nLuego las apartamos y dejamos en una bandeja sobre papel absorbente, para que suelte todo el aceite que sobre. Colocar en una fuente o bandeja y listas para servir y comer.', 'Primero', 3,null),
+('Tarta de queso sin horno receta', '50 gramos de nata liquida.\r\n200 gramos de queso Philadelphia.\r\n200 mililitros de leche.\r\n160 gramos de azúcar.\r\n70 gramos de margarina.\r\nMermelada suficiente para cubrir la superficie de la tarta.\r\n2 sobres de cuajada.\r\n1 paquete de galletas Maria.', 'La tarta de queso sin horno también es uno de los postres más populares que con mucha frecuencia se suelen cocinar para disfrutar en familia o con los amigos. La principal diferencia con respecto a otras tartas de queso tradicionales es que aquí no se utiliza el horno para su elaboración, lo que significa que prácticamente cualquiera puede hacer una tarta de queso.  ', '2016-02-26', 'Una vez que se tienen preparados todos los ingredientes el primer paso en esta receta para la tarta de queso sin horno comienza con la colocación de todos los ingredientes, (a excepción de las galletas y la margarina), en una batidora para mezclar hasta que tengan una consistencia similar a la del puré.\r\nA continuación debemos colocar esta mezcla al fuego hasta que rompa el hervor; una vez hecho esto hay que retirar del fuego.\r\nAhora, hay que colocar las galletas en la batidora junto con la margarina y mezclar.\r\nAl terminar esto debemos extender la mezcla sobre la base de un molde asegurándonos de que se encuentre bien prensando.\r\nUna vez hecho esto se tiene que verter la mezcla por encima y luego colocar en la nevera para que se enfrié.\r\nCuando esta preparación ya se encuentra fría, lo que sigue ahora es cubrirla con la mermelada del sabor que se prefiera y listo, de esta forma tan sencilla se puede hacer una tarta de queso sin horno y en poco tiempo disfrutar con nuestros invitados.', 'Postre', 3,null);
+
+
+
+
+
+CREATE TABLE comentarios(
+        idcoment INTEGER NOT NULL AUTO_INCREMENT,
+        descripcoment VARCHAR(500) NOT NULL,
+        personaid INTEGER NOT NULL,
+        recetaid INTEGER NOT NULL,
+        PRIMARY KEY(idcoment),
+        FOREIGN KEY (personaid) REFERENCES usuario (idusu) ON DELETE CASCADE,
+         FOREIGN KEY (recetaid) REFERENCES recetas (idrect) ON DELETE CASCADE
+);
+
+INSERT INTO `comentarios` (`descripcoment`, `personaid`, `recetaid`) VALUES
+('Rico', 3, 1),
+('de verdad rico', 3, 1),
+('muy rico', 3, 2);
+
+
+
+------------
+
+ CREATE TABLE `imagenes` (
+    -> `imagen_id` int(11) AUTO_INCREMENT PRIMARY KEY,
+    -> `imagen` mediumblob,
+    -> `tipo_imagen` varchar(30)
+    -> );
+    
+    
+    
+  

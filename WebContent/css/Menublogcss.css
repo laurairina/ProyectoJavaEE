@@ -1,0 +1,137 @@
+@CHARSET "UTF-8";
+/*-- Basico ----------------------------------------------------------*/
+ul, ul li { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, p, form { margin: 0; padding: 0; }
+.clear { clear: both; }
+img { border: none; width:80%; }
+
+/*-- Layout ----------------------------------------------------------*/
+#contenedor {
+ /* width: 90%; */
+  max-width:95%;
+  margin: 0 auto; 
+}
+ #noticias,#pie {background-color:#F8F8F8; }
+ #secundario h2 { background-color:#DB905C; padding:0.2em;  }
+ #menu{ background-color:blue;}
+
+body{color:black; font-family:arial; font-size:0.9em; line-height:1.4;   width:auto;
+  height:auto; margin:opx; }
+#principal .articulo h2{color:#445c7b; font-size:1.7em; line-height:1.2; margin-bottom:0.3em; }
+.fecha{color:#004040;}
+#noticias h3{color:blue; text-align:center; } 
+div #contenido{border-style:none;}
+div #publicidad{border-style:dashed;}
+#menu a{margin-right:1em; margin-left:2em; color:white; font-size:1.3em; font-weight:bold;}
+#menu a:hover{color:yellow;  text-decoration:none;  }
+
+/*--Borde redondeados--------*/
+#menu {border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+border: 0px solid #000000;}
+#noticias{border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+border: 0px solid #000000;
+width:150px;
+}
+
+#secundario{border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+border: 0px solid #000000;}
+/*----------*/
+
+#publicidad{border-radius: 10px 10px 10px 10px;
+-moz-border-radius: 10px 10px 10px 10px;
+-webkit-border-radius: 10px 10px 10px 10px;
+border: 0px solid #000000;
+width:150px;
+}
+#lateral {font-size:0.9em;}
+#publicidad{ color:#555;}
+#publicidad a{color:#CC6600;}
+.articulo a{color:#8000ff;}
+
+div #secundario {width:300px; overflow:auto;}
+
+#secundario p{ padding:0.8em; }
+
+#secundario h2{ padding:0.8em; font-size:0.9em; color:white; margin:0.2em;}
+div #pie {border-style:none;  border-bottom-style:solid;   border-top-style:solid;}
+#secundario h1{ text-align:center; color:blue;}
+
+
+.articulo table{margin:auto;} 
+.articulo tr,td{ padding:1em; color:#CC6600; font-size:1.2em; font-weight:bold; }
+
+.articulo h2{text-align:center; } 
+.articulo h1{text-align:center; color:#000080;  font-family: Helvetica, Geneva, Arial, sans-serif; text-shadow: -3px 5px 4px #777;color:#004080;}  
+.articulo td #boton{width:60%;}
+#parrafo{ width:400px;  height:100px; color:#3e443f; margin:auto; font-size:16px;}
+#resumen{color:#3e443f;}
+
+#lista li{margin-left:3em;  list-style: square;}
+
+.usuario {font-size:0.8em;  font-weight: bold; color:red;}
+.comentario td{color:black; }
+
+ #boton {  margin: -10px auto 0; width:80%;} 
+#cabecera, #menu, #lateral, #contenido, #contenido #principal, #contenido #secundario, #pie {
+  border: 2px solid #777;   
+}
+
+#cabecera { clear: both;  }
+#menu { clear: both; }
+#lateral { float: left; width: 20%; border: none; }
+#contenido { float: right; width: 78%; margin-bottom:1em; }
+#contenido #principal { float: left; width: 78%;}
+#contenido #secundario { float: right; width: 20%;  }
+
+#pie { clear: both;  }
+
+/*-- Cabecera --------------------------------------------------------*/
+#cabecera #logo { float: left;}
+#cabecera #buscador { float: right; } 
+
+#cabecera{padding: 1em;}
+/*-- Menu ------------------------------------------------------------*/
+#menu ul#menu_principal li { display: inline; float: left; }
+
+#menu{padding: 0.5em; margin-bottom: 0.5em;}
+/*-- Seccion Principal -----------------------------------------------*/
+#contenido #principal .articulo img { width: 100px; float: left;}
+
+/*-- Pie de p?gina ---------------------------------------------------*/
+#pie .enlaces   { float: left; }
+#pie .copyright { float: right; color:blue; }
+
+#pie .enlaces,#pie .copyright{padding-bottom:0.5em; padding-top:0.5em;}
+#contenido .articulo{margin-bottom:1em; }
+
+#lateral  #noticias{padding:0.5em; float: left; border:1px; border-style: solid;}
+#lateral #publicidad{padding:0.5em; float: left;}
+#principal .articulo{padding: 0.5em; border: none; margin-bottom,margin-top:0.3em; }
+#contenido  #principal{border: none; }
+#publicidad{border:1px; border-style: solid; }
+#contenedor #menu{border-bottom:1px; border-style: solid;}
+img{margin: 0.5em;  }
+#publicidad{margin-top: 1em; margin-bottom: 1em; background-color:#FFF6CD;}
+#publicidad img{display:block;margin:0 auto 0 auto;}
+
+#pie{margin-top: 1em;}
+
+#contenedor #cabecera{border: none;}
+#contenedor #menu{border: none;}
+
+#imagenReceta{ float:right;  margin-right: 8em;}
+.errores{color:blue; text-align:center;}
+
+
+#box {
+height:110px;
+width:160px;
+font:13px/18px Georgia, Garamond, Serif;
+overflow:auto;
+} 
